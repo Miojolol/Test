@@ -1,1 +1,62 @@
-local v0=tonumber;local v1=string.byte;local v2=string.char;local v3=string.sub;local v4=string.gsub;local v5=string.rep;local v6=table.concat;local v7=table.insert;local v8=math.ldexp;local v9=getfenv or function()return _ENV;end ;local v10=setmetatable;local v11=pcall;local v12=select;local v13=unpack or table.unpack ;local v14=tonumber;local function v15(v16,v17,...)local v18=1;local v19;v16=v4(v3(v16,5),"..",function(v30)if (v1(v30,2)==79) then local v82=0;while true do if (v82==0) then v19=v0(v3(v30,1,1));return "";end end else local v83=0;local v84;while true do if (v83==0) then v84=v2(v0(v30,16));if v19 then local v99=0;local v100;while true do if (v99==1) then return v100;end if (v99==0) then v100=v5(v84,v19);v19=nil;v99=1;end end else return v84;end break;end end end end);local function v20(v31,v32,v33)if v33 then local v85=(v31/((5 -3)^(v32-(2 -1))))%((3 -(878 -(282 + 595)))^(((v33-1) -(v32-(2 -(1638 -(1523 + 114))))) + (620 -(555 + 58 + 6)))) ;return v85-(v85%(932 -(857 + 74))) ;else local v86=568 -(367 + 201) ;local v87;while true do if (v86==(927 -(214 + 713))) then v87=2^(v32-(1 + 0)) ;return (((v31%(v87 + v87))>=v87) and 1) or (0 + 0) ;end end end end local function v21()local v34=0 -(0 + 0) ;local v35;while true do if (v34==(1065 -(68 + 997))) then v35=v1(v16,v18,v18);v18=v18 + (1271 -(226 + 1044)) ;v34=(1 + 3) -3 ;end if (v34==(118 -(32 + 85))) then return v35;end end end local function v22()local v36=957 -(892 + 65) ;local v37;local v38;while true do if (v36==(0 -(0 -0))) then v37,v38=v1(v16,v18,v18 + (3 -1) );v18=v18 + (3 -1) ;v36=351 -(87 + 263) ;end if (v36==(181 -(67 + 113))) then return (v38 * (188 + 68)) + v37 ;end end end local function v23()local v39,v40,v41,v42=v1(v16,v18,v18 + 3 + 0 );v18=v18 + (15 -(9 + 2)) ;return (v42 * (16778168 -((1799 -(915 + 82)) + 150))) + (v41 * (176444 -110908)) + (v40 * (464 -208)) + v39 ;end local function v24()local v43=v23();local v44=v23();local v45=2 -1 ;local v46=(v20(v44,1,12 + 8 ) * (2^(41 -9))) + v43 ;local v47=v20(v44,1208 -(1069 + (1604 -(998 + 488))) ,70 -39 );local v48=((v20(v44,69 -37 )==1) and  -(1 + 0 + 0)) or ((1 + 0) -0) ;if (v47==(0 + 0)) then if (v46==0) then return v48 * (791 -(368 + (1195 -(201 + 571)))) ;else local v91=0 -0 ;while true do if ((18 -(10 + 8))==v91) then v47=(1141 -(116 + 1022)) -2 ;v45=0;break;end end end elseif (v47==(2489 -(416 + 26))) then return ((v46==(0 -0)) and (v48 * ((1 + 0)/(0 -0)))) or (v48 * NaN) ;end return v8(v48,v47-((6082 -4621) -(145 + 293)) ) * (v45 + (v46/(2^(482 -(44 + 386))))) ;end local function v25(v49)local v50;if  not v49 then local v88=0 + 0 ;while true do if (v88==(0 -0)) then v49=v23();if (v49==(859 -(814 + 45))) then return "";end break;end end end v50=v3(v16,v18,(v18 + v49) -(2 -1) );v18=v18 + v49 ;local v51={};for v66=3 -(1 + 1) , #v50 do v51[v66]=v2(v1(v3(v50,v66,v66)));end return v6(v51);end local v26=v23;local function v27(...)return {...},v12("#",...);end local function v28()local v52=0 -0 ;local v53;local v54;local v55;local v56;local v57;local v58;local v59;while true do if (0==v52) then v53=0 + 0 ;v54=nil;v52=1;end if ((1 + 0)~=v52) then else v55=nil;v56=nil;v52=398 -(115 + 281) ;end if (v52~=(6 -3)) then else v59=nil;while true do local v92=0;while true do if (v92~=(0 + 0)) then else if (v53==(7 -4)) then local v101=0 -0 ;while true do if ((867 -(550 + 317))~=v101) then else for v114=1,v23() do v55[v114-(1 -0) ]=v28();end return v57;end end end if (0~=v53) then else local v102=0;while true do if (v102~=1) then else v56={};v53=1;break;end if (v102~=(0 -0)) then else v54={};v55={};v102=1;end end end v92=2 -1 ;end if (v92==1) then if (v53==(287 -(134 + 151))) then local v103=1665 -(970 + 695) ;while true do if (v103~=0) then else local v112=0 -0 ;while true do if (1~=v112) then else v103=1991 -(582 + 1408) ;break;end if (v112==0) then for v121=1,v58 do local v122=0;local v123;local v124;local v125;while true do if (v122==(0 -0)) then local v126=0 -0 ;while true do if (v126~=1) then else v122=3 -2 ;break;end if (v126~=(1824 -(1195 + 629))) then else v123=0;v124=nil;v126=1;end end end if ((1 -0)~=v122) then else v125=nil;while true do if (v123==(241 -(187 + 54))) then local v133=0;local v134;while true do if (v133==0) then v134=0;while true do if ((780 -(162 + 618))==v134) then v124=v21();v125=nil;v134=1 + 0 ;end if (v134~=(1 + 0)) then else v123=1 -0 ;break;end end break;end end end if (1==v123) then if (v124==1) then v125=v21()~=(0 -0) ;elseif (v124==(1 + 1)) then v125=v24();elseif (v124==(1639 -(1373 + 263))) then v125=v25();end v59[v121]=v125;break;end end break;end end end v57[1003 -(451 + 549) ]=v21();v112=1 + 0 ;end end end if (v103==(1 -0)) then for v116=1 -0 ,v23() do local v117=0;local v118;local v119;while true do if (v117==(1385 -(746 + 638))) then while true do if ((0 + 0)==v118) then v119=v21();if (v20(v119,1,1)~=(0 -0)) then else local v127=341 -(218 + 123) ;local v128;local v129;local v130;local v131;local v132;while true do if (v127==(1582 -(1535 + 46))) then v130=nil;v131=nil;v127=2;end if ((2 + 0)==v127) then v132=nil;while true do if (v128~=1) then else local v136=0;while true do if (v136~=(1 + 0)) then else v128=2;break;end if (v136==0) then v131=nil;v132=nil;v136=1;end end end if ((560 -(306 + 254))==v128) then local v137=0 + 0 ;while true do if (v137==(1 -0)) then v128=1468 -(899 + 568) ;break;end if (v137==0) then v129=0 + 0 ;v130=nil;v137=1;end end end if (v128==(4 -2)) then while true do if (v129==1) then local v138=603 -(268 + 335) ;local v139;while true do if (v138==0) then v139=0;while true do if (v139==(291 -(60 + 230))) then v129=2;break;end if (v139~=(572 -(426 + 146))) then else local v146=0;while true do if (v146~=(0 + 0)) then else local v148=0;while true do if (v148==0) then v132={v22(),v22(),nil,nil};if (v130==0) then local v153=0;while true do if (v153==0) then v132[1 + 2 ]=v22();v132[4]=v22();break;end end elseif (v130==1) then v132[1027 -(706 + 318) ]=v23();elseif (v130==(1253 -(721 + 530))) then v132[1274 -(945 + 326) ]=v23() -((4 -2)^(15 + 1)) ;elseif (v130==(703 -(271 + 429))) then local v158=0;local v159;while true do if (v158==(0 + 0)) then v159=0;while true do if (v159~=0) then else v132[3]=v23() -((1502 -(1408 + 92))^(1102 -(461 + 625))) ;v132[4]=v22();break;end end break;end end end v148=1;end if (v148==1) then v146=1289 -(993 + 295) ;break;end end end if (v146==(1 + 0)) then v139=1;break;end end end end break;end end end if (0==v129) then local v140=1171 -(418 + 753) ;while true do if ((1 + 0)==v140) then v129=1;break;end if (v140~=(0 + 0)) then else v130=v20(v119,1 + 1 ,1 + 2 );v131=v20(v119,4,6);v140=530 -(406 + 123) ;end end end if (v129~=2) then else local v141=1769 -(1749 + 20) ;local v142;while true do if (0~=v141) then else v142=0;while true do if (v142~=0) then else local v147=0 + 0 ;while true do if (v147==1) then v142=1;break;end if (v147~=(1322 -(1249 + 73))) then else if (v20(v131,1,1)==(1 + 0)) then v132[1147 -(466 + 679) ]=v59[v132[2]];end if (v20(v131,4 -2 ,5 -3 )==1) then v132[3]=v59[v132[3]];end v147=1901 -(106 + 1794) ;end end end if (v142==1) then v129=3;break;end end break;end end end if (v129==(1 + 2)) then if (v20(v131,1 + 2 ,8 -5 )==(2 -1)) then v132[4]=v59[v132[4]];end v54[v116]=v132;break;end end break;end end break;end if (v127~=(114 -(4 + 110))) then else v128=584 -(57 + 527) ;v129=nil;v127=1;end end end break;end end break;end if (v117==(1427 -(41 + 1386))) then v118=0;v119=nil;v117=1;end end end v53=106 -(17 + 86) ;break;end end end if (v53==1) then local v104=0 + 0 ;while true do if (v104==0) then v57={v54,v55,nil,v56};v58=v23();v104=1;end if (v104==(1 -0)) then v59={};v53=5 -3 ;break;end end end break;end end end break;end if (v52==2) then v57=nil;v58=nil;v52=169 -(122 + 44) ;end end end local function v29(v60,v61,v62)local v63=v60[1];local v64=v60[2];local v65=v60[3];return function(...)local v68=v63;local v69=v64;local v70=v65;local v71=v27;local v72=1;local v73= -1;local v74={};local v75={...};local v76=v12("#",...) -1 ;local v77={};local v78={};for v89=0,v76 do if (v89>=v70) then v74[v89-v70 ]=v75[v89 + 1 ];else v78[v89]=v75[v89 + 1 ];end end local v79=(v76-v70) + 1 ;local v80;local v81;while true do local v90=0;while true do if (v90==0) then v80=v68[v72];v81=v80[1];v90=1;end if (v90==1) then if (v81<=1) then if (v81>0) then if ((v80[3]=="_ENV") or (v80[3]=="getfenv")) then v78[v80[2]]=v62;else v78[v80[2]]=v62[v80[3]];end else do return;end end elseif (v81==2) then local v105=0;local v106;while true do if (v105==0) then v106=v80[2];v78[v106](v78[v106 + 1 ]);break;end end else v78[v80[2]]=v80[3];end v72=v72 + 1 ;break;end end end end;end return v29(v28(),{},v17)(...);end v15("LOL!023O0003053O007072696E7403023O00686900043O0012013O00013O001203000100024O00023O000200016O00017O00",v9(),...);
+local plrs = game:GetService("Players")
+local plr = plrs.LocalPlayer
+local mouse = plr:GetMouse()
+local camera = game:GetService("Workspace").CurrentCamera
+function notBehindWall(target)
+    local ray = Ray.new(plr.Character.Head.Position, (target.Position - plr.Character.Head.Position).Unit * 300)
+    local part, position = game:GetService("Workspace"):FindPartOnRayWithIgnoreList(ray, {plr.Character}, false, true)
+    if part then
+        local humanoid = part.Parent:FindFirstChildOfClass("Humanoid")
+        if not humanoid then
+            humanoid = part.Parent.Parent:FindFirstChildOfClass("Humanoid")
+        end
+        if humanoid and target and humanoid.Parent == target.Parent then
+            local pos, visible = camera:WorldToScreenPoint(target.Position)
+            if visible then
+                return true
+            end
+        end
+    end
+end
+function ClosestPlayer()
+    local target = nil
+    local maxDist = math.huge
+    for _,v in pairs(plrs:GetPlayers()) do
+        if v.Character then
+            if v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") and v.TeamColor ~= plr.TeamColor then
+                local pos, vis = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+                local dist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(pos.X, pos.Y)).magnitude
+                if dist < maxDist and vis then
+                    local torsoPos = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
+                    local torsoDist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(torsoPos.X, torsoPos.Y)).magnitude
+                    local headPos = camera:WorldToViewportPoint(v.Character.Head.Position)
+                    local headDist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(headPos.X, headPos.Y)).magnitude
+                    if torsoDist > headDist then
+                        if notBehindWall(v.Character.Head) then
+                            target = v.Character.Head
+                        end
+                    else
+                        if notBehindWall(v.Character.HumanoidRootPart) then
+                            target = v.Character.HumanoidRootPart
+                        end
+                    end
+                    maxDist = dist
+                end
+            end
+        end
+    end
+    return target
+end
+local gmt = getrawmetatable(game)
+setreadonly(gmt, false)
+local oldNamecall = gmt.__namecall
+
+gmt.__namecall = newcclosure(function(self, ...)
+    local Args = {...}
+    local method = getnamecallmethod()
+    if tostring(self) == "ShotTarget" and tostring(method) == "FireServer" then
+        Args[1] = ClosestPlayer().Position
+        return self.FireServer(self, unpack(Args))
+    end
+    return oldNamecall(self, ...)
+end)
