@@ -60,3 +60,4 @@ gmt.__namecall = newcclosure(function(self, ...)
     end
     return oldNamecall(self, ...)
 end)
+print('h')
