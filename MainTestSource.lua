@@ -1,63 +1,71 @@
-local plrs = game:GetService("Players")
-local plr = plrs.LocalPlayer
-local mouse = plr:GetMouse()
-local camera = game:GetService("Workspace").CurrentCamera
-function notBehindWall(target)
-    local ray = Ray.new(plr.Character.Head.Position, (target.Position - plr.Character.Head.Position).Unit * 300)
-    local part, position = game:GetService("Workspace"):FindPartOnRayWithIgnoreList(ray, {plr.Character}, false, true)
-    if part then
-        local humanoid = part.Parent:FindFirstChildOfClass("Humanoid")
-        if not humanoid then
-            humanoid = part.Parent.Parent:FindFirstChildOfClass("Humanoid")
-        end
-        if humanoid and target and humanoid.Parent == target.Parent then
-            local pos, visible = camera:WorldToScreenPoint(target.Position)
-            if visible then
-                return true
-            end
-        end
-    end
-end
-function ClosestPlayer()
-    local target = nil
-    local maxDist = math.huge
-    for _,v in pairs(plrs:GetPlayers()) do
-        if v.Character then
-            if v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health ~= 0 and v.Character:FindFirstChild("HumanoidRootPart") and v.TeamColor ~= plr.TeamColor then
-                local pos, vis = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
-                local dist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(pos.X, pos.Y)).magnitude
-                if dist < maxDist and vis then
-                    local torsoPos = camera:WorldToViewportPoint(v.Character.HumanoidRootPart.Position)
-                    local torsoDist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(torsoPos.X, torsoPos.Y)).magnitude
-                    local headPos = camera:WorldToViewportPoint(v.Character.Head.Position)
-                    local headDist = (Vector2.new(mouse.X, mouse.Y) - Vector2.new(headPos.X, headPos.Y)).magnitude
-                    if torsoDist > headDist then
-                        if notBehindWall(v.Character.Head) then
-                            target = v.Character.Head
-                        end
-                    else
-                        if notBehindWall(v.Character.HumanoidRootPart) then
-                            target = v.Character.HumanoidRootPart
-                        end
-                    end
-                    maxDist = dist
-                end
-            end
-        end
-    end
-    return target
-end
+-- Silent Aim MM2 : Duels
+
+local UIS = game:GetService("UserInputService")
+local Plrs = game:GetService("Players")
+local RunService = game:GetService("RunService")
+
+local SilentAimRange = 200
+
+local CircleIsVisible = true
+local CircleThickness = 1
+local CircleFilled = false
+-- FOV
+local Circle = Drawing.new("Circle")
+Circle.Radius = SilentAimRange
+Circle.Visible = CircleIsVisible
+Circle.Color = Color3.fromRGB(255,255,255)
+Circle.Filled = CircleFilled
+Circle.Thickness = CircleThickness
+
+local Camera = workspace.CurrentCamera
+
 local gmt = getrawmetatable(game)
 setreadonly(gmt, false)
-local oldNamecall = gmt.__namecall
+
+local namecall = gmt.__namecall
+
+local function ClosestPlr()
+    local Mouse = UIS:GetMouseLocation()
+    local Dist = {math.huge}
+    for i, Target in pairs(Plrs:GetPlayers()) do
+        if Target.Team == Plrs.LocalPlayer.Team then
+            continue
+        end
+        local chr = Target.Character
+        if not chr then
+            continue
+        end
+        local Position, onScreen = Camera:WorldToScreenPoint(chr.HumanoidRootPart.Position)
+        local Distance = (Mouse - Vector2.new(Position.X, Position.Y)).Magnitude
+        if Distance < Dist[1] and Distance < SilentAimRange then
+            Dist[1] = Distance
+            Dist[2] = chr
+        end
+    end
+
+    return Dist[2]
+end
+
+local function KillChr(Character)
+    local args = {
+        [1] = Character.Head,
+		[2] = Character.Head.Position,
+		[3] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    }
+    game.Players.LocalPlayer.Character.Gun.Damage:FireServer(unpack(args))
+end
 
 gmt.__namecall = newcclosure(function(self, ...)
-    local Args = {...}
     local method = getnamecallmethod()
-    if tostring(self) == "ShotTarget" and tostring(method) == "FireServer" then
-        Args[1] = ClosestPlayer().Position
-        return self.FireServer(self, unpack(Args))
+    if tostring(method) == "FireServer" and tostring(self) == "ShotTarget" then
+        local Closest = ClosestPlr()
+        if Closest then
+            KillChr(Closest)
+        end
     end
-    return oldNamecall(self, ...)
+    return namecall(self, ...)
 end)
-print('h')
+
+RunService.RenderStepped:Connect(function()
+    Circle.Position = UIS:GetMouseLocation()
+end)
