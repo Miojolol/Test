@@ -1,51 +1,90 @@
-local UIS = game:GetService("UserInputService")
-local Plrs = game:GetService("Players")
-local RunService = game:GetService("RunService")
+--Underground War 2.0
+if game.PlaceId == 9791603388 then
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
 
-local SilentAimRange = 200
-local Camera = workspace.CurrentCamera
 
-local gmt = getrawmetatable(game)
-setreadonly(gmt, false)
 
-local namecall = gmt.__namecall
 
-local function ClosestPlr()
-    local Mouse = UIS:GetMouseLocation()
-    local Dist = {math.huge}
-    for i, Target in pairs(Plrs:GetPlayers()) do
-        if Target.Team == Plrs.LocalPlayer.Team then
-            continue
-        end
-        local chr = Target.Character
-        if not chr then
-            continue
-        end
-        local Position, onScreen = Camera:WorldToScreenPoint(chr.HumanoidRootPart.Position)
-        local Distance = (Mouse - Vector2.new(Position.X, Position.Y)).Magnitude
-        if Distance < Dist[1] and Distance < SilentAimRange then
-            Dist[1] = Distance
-            Dist[2] = chr 
-        end
-    end
 
-    return Dist[2]
-end
+local Window = Fluent:CreateWindow({
+    Title = "Cookie Ware // Underground War 2.0 // "..getexecutorname() ,
+    SubTitle = "github.com/Miojolol",
+    TabWidth = 160,
+    Size = UDim2.fromOffset(580, 460),
+    Acrylic = false, 
+    Theme = "Amethyst",
+    MinimizeKey = Enum.KeyCode.LeftAlt
+})
 
-local function KillChr(Character)
-    local args = {
-        [1] = Character.Head.Position,
-    }
-    game.Players.LocalPlayer.Character.Sniper.Damage:FireServer(unpack(args))
-end
 
-gmt.__namecall = newcclosure(function(self, ...)
-    local method = getnamecallmethod()
-    if tostring(method) == "FireServer" and tostring(self) == "ShotTarget" then
-        local Closest = ClosestPlr()
-        if Closest then
-            KillChr(Closest)
-        end
-    end
-    return namecall(self, ...)
+local Tabs = {
+    Main = Window:AddTab({ Title = "Main", Icon = "scroll" }),
+    Combat = Window:AddTab({ Title = "Combat", Icon = "swords" }),
+    ESP = Window:AddTab({ Title = "ESP", Icon = "users" }),
+    Settings = Window:AddTab({ Title = "Settings", Icon = "settings" })
+}
+
+
+wait(2)
+Fluent:Notify({
+    Title = "Cookie Ware",
+    Content = "Reach bypass has been activated for this game ",
+    SubContent = "", 
+    Duration = 8
+})
+game.RunService.RenderStepped:Connect(function()
+	local hellofrombrazillol = game.Players.LocalPlayer
+	hellofrombrazillol.Character["L_Optimizations"].Disabled = true
+	hellofrombrazillol.Character["L_AntiCheat"].Disabled = true
 end)
+
+local WalkSpeedInput = Tabs.Main:AddInput("WalkSpeed", {
+    Title = "Walk Speed",
+    Default = "",
+    Placeholder = "",
+    Numeric = true, 
+    Finished = true, 
+    Callback = function(character,v)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+    end
+})
+
+local JumpPowerInput = Tabs.Main:AddInput("Jump Power", {
+    Title = "Jump Power",
+    Default = "",
+    Placeholder = "",
+    Numeric = true, 
+    Finished = true, 
+    Callback = function(character,v)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
+    end
+})
+
+
+local EnCFSp = Tabs.Main:AddToggle("Enable CFrame Speed", {Title = "Enable CFrame Speed", Default = false})
+
+    EnCFSp:OnChanged(function(v)
+        _G.SpeedCFrameEnabled = v
+    end)
+
+
+local CFrameSpeedInput = Tabs.Main:AddInput("CFrame Speed", {
+    Title = "CFrame Speed",
+    Default = "",
+    Placeholder = "",
+    Numeric = true, 
+    Finished = true, 
+    Callback = function(Speed)
+     if _G.SpeedCFrameEnabled then
+        game.RunService.RenderStepped:Connect(function()
+            _G.CFrameSpeed = Speed
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.Humanoid.MoveDirection * _G.CFrameSpeed
+        end)
+    end
+})
+
+
+
+end
