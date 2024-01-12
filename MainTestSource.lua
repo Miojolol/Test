@@ -45,7 +45,7 @@ local WalkSpeedInput = Tabs.Main:AddInput("WalkSpeed", {
     Placeholder = "",
     Numeric = true, 
     Finished = true, 
-    Callback = function(character,v)
+    Callback = function(v)
         game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
     end
 })
@@ -56,7 +56,7 @@ local JumpPowerInput = Tabs.Main:AddInput("Jump Power", {
     Placeholder = "",
     Numeric = true, 
     Finished = true, 
-    Callback = function(character,v)
+    Callback = function(v)
         game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
     end
 })
